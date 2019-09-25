@@ -19,29 +19,16 @@ class Board():
 
 
     def is_winner(self, player):
-        if self.cells[1] == player and self.cells[2] == player and self.cells[3] == player:
-            return True
+        moves = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 5, 9], [3, 5, 7], [1, 4, 7], [2, 5, 8], [3, 6, 9]]
 
-        if self.cells[4] == player and self.cells[5] == player and self.cells[6] == player:
-            return True
+        for option in moves:
+            result = True
+            for n in option:
+                if self.cells[n] != player:
+                    result = False
 
-        if self.cells[7] == player and self.cells[8] == player and self.cells[9] == player:
-            return True
-
-        if self.cells[1] == player and self.cells[5] == player and self.cells[9] == player:
-            return True
-
-        if self.cells[3] == player and self.cells[5] == player and self.cells[7] == player:
-            return True
-
-        if self.cells[1] == player and self.cells[4] == player and self.cells[7] == player:
-            return True
-
-        if self.cells[2] == player and self.cells[5] == player and self.cells[8] == player:
-            return True
-
-        if self.cells[3] == player and self.cells[6] == player and self.cells[9] == player:
-            return True
+            if result == True:
+                return True
 
         return False
 
